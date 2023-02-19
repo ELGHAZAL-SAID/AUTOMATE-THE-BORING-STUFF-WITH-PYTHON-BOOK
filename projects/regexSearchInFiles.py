@@ -4,6 +4,7 @@
 import os,re, time
 
 path = os.path.join(os.getcwd(),'quizFiles')
+
 def loadFiles(path,answer):
     result:list = []
     for file in os.listdir(path):

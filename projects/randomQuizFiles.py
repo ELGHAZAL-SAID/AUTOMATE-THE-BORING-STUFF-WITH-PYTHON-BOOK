@@ -6,11 +6,11 @@ import os,random,shelve
 
 
 dbpath = Path.cwd()/'statesAndCapitals' #getting the shelve file path
+
 # access the shelved file to get the dict of stats and their capitals
 with shelve.open(dbpath,'r') as db:
-    
+        
     us_states_and_capitals = dict(db) #store the shelved file after converting it into a dictionary datatype
-    
     #generate 35 random files
     for i in range(35):
         # generate each quiz file and it's answer in answers file
@@ -30,7 +30,9 @@ with shelve.open(dbpath,'r') as db:
             for question in range(50):
                 correctAnswer = us_states_and_capitals[states[question]]
                 wrongAnswers = list(us_states_and_capitals.values())
+                
                 del wrongAnswers[wrongAnswers.index(correctAnswer)]
+                
                 answerOptions = random.sample(wrongAnswers,3) 
                 answerOptions.append(correctAnswer)
                 random.shuffle(answerOptions) #random
